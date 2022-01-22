@@ -40,4 +40,6 @@ function checkTime() {
         };
     });
 };
+
+// Call the function to check the time
 checkTime();
