@@ -1,19 +1,11 @@
-console.log("Hello");
-// Pseudocoding
-
-
-
 // Take what user wrote on the textarea and save it in localstorage
 $(".saveBtn").on("click", function() {
-    console.log("Save was clicked");
-
+    // Gets the ID and text content of the row that houses the clicked save button
     var time = $(this).parent().attr("id");
     var blockinfo = $(this).siblings(".blockinfo").val();
 
-    console.log(time + " " + blockinfo);
-
+    // Saves info into localStorage under corresponding keys
     localStorage.setItem(time, blockinfo);
-
 });
 
 // Load blocks to the page
