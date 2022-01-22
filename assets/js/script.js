@@ -8,7 +8,7 @@ $(".saveBtn").on("click", function() {
     console.log("Save was clicked");
 
     var time = $(this).siblings(".hour").text();
-    var blockinfo = $(this).siblings(".blockinfo").val;
+    var blockinfo = $(this).siblings(".blockinfo").val();
 
     console.log(time + " " + blockinfo);
 
