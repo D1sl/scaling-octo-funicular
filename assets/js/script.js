@@ -8,6 +8,8 @@ $(".saveBtn").on("click", function () {
     localStorage.setItem(time, blockinfo);
 });
 
+$(".date").text(moment().format('dddd') + ", " + moment().format('MMMM Do YYYY'));
+
 // Load blocks to the page
 $("#9 .blockinfo").val(localStorage.getItem("9"));
 $("#10 .blockinfo").val(localStorage.getItem("10"));
