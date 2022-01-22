@@ -1,14 +1,14 @@
+// Update date at the top of the page
+$(".date").text(moment().format('dddd') + ", " + moment().format('MMMM Do YYYY'));
+
 // Take what user wrote on the textarea and save it in localstorage
 $(".saveBtn").on("click", function () {
     // Gets the ID and text content of the row that houses the clicked save button
     var time = $(this).parent().attr("id");
     var blockinfo = $(this).siblings(".blockinfo").val();
-
     // Saves info into localStorage under corresponding keys
     localStorage.setItem(time, blockinfo);
 });
-
-$(".date").text(moment().format('dddd') + ", " + moment().format('MMMM Do YYYY'));
 
 // Load blocks to the page
 $("#9 .blockinfo").val(localStorage.getItem("9"));
@@ -21,31 +21,23 @@ $("#15 .blockinfo").val(localStorage.getItem("15"));
 $("#16 .blockinfo").val(localStorage.getItem("16"));
 $("#17 .blockinfo").val(localStorage.getItem("17"));
 
-// A loop that checks each time block once every second to see if it is in the past, present or future and changes its color accordingly
-
+// Check each time block to see if it is in the past, present or future and changes its color accordingly
 function checkTime() {
     // Get the current hour and assign it into a variable
     var currentHour = moment().hours();
-    console.log(currentHour);
-
-    // Get the hour of each row
+    // Get the hour of each row and compare it to current time
     $(".time-block").each(function () {
         var blockHour = parseInt($(this).attr("id"));
-        console.log(blockHour);
-
-        if (blockHour > currentHour) {
-            $(this).addClass("future");
-            $(this).removeClass("past", "present");
+        if (blockHour < currentHour) {
+            $(this).addClass("past");
+            $(this).removeClass("future", "present");
         } else if (blockHour === currentHour) {
             $(this).addClass("present");
             $(this).removeClass("past", "future");
         } else {
-            $(this).addClass("past");
-            $(this).removeClass("future", "present");
+            $(this).addClass("future");
+            $(this).removeClass("past", "present");
         };
     });
 };
-
 checkTime();
-
-// updater = setInterval(checkTime, 1000);
