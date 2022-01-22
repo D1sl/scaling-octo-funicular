@@ -30,6 +30,14 @@ function checkTime() {
     $(".time-block").each(function () {
         var blockHour = parseInt($(this).attr("id"));
         console.log(blockHour);
+
+        if (blockHour > currentHour) {
+            console.log("Current hour is: " + currentHour + ". Block with hour " + blockHour + " is in the future.");
+        } else if (blockHour === currentHour) {
+            console.log("Current hour is: " + currentHour + ". Block with hour " + blockHour + " is in the present.");
+        } else {
+            console.log("Current hour is: " + currentHour + ". Block with hour " + blockHour + " is in the past.");
+        }
     });
 };
 
