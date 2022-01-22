@@ -20,3 +20,19 @@ $("#16 .blockinfo").val(localStorage.getItem("16"));
 $("#17 .blockinfo").val(localStorage.getItem("17"));
 
 // A loop that checks each time block once every second to see if it is in the past, present or future and changes its color accordingly
+
+function checkTime() {
+    // Get the current hour and assign it into a variable
+    var currentHour = moment().hours();
+    console.log(currentHour);
+
+    // Get the hour of each row
+    $(".time-block").each(function () {
+        var blockHour = parseInt($(this).attr("id"));
+        console.log(blockHour);
+    });
+};
+
+checkTime();
+
+// updater = setInterval(checkTime, 1000);
