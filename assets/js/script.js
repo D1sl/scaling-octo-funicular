@@ -1,10 +1,21 @@
 console.log("Hello");
 // Pseudocoding
 
-// Time blocks are created and appended on the page
 
-// When a block is clicked, it turns into an input element
 
-// When user clicks out of that block or clicks the save icon, the event is saved
+// Take what user wrote on the textarea and save it in localstorage
+$(".saveBtn").on("click", function() {
+    console.log("Save was clicked");
+
+    var time = $(this).siblings(".hour").text();
+    var blockinfo = $(this).siblings(".blockinfo").val;
+
+    console.log(time + " " + blockinfo);
+
+});
+
+var saveBlock = function() {
+    localStorage.setItem(time, blockinfo);
+}
 
 // A loop that checks each time block once every second to see if it is in the past, present or future and changes its color accordingly
