@@ -1,5 +1,5 @@
 // Take what user wrote on the textarea and save it in localstorage
-$(".saveBtn").on("click", function() {
+$(".saveBtn").on("click", function () {
     // Gets the ID and text content of the row that houses the clicked save button
     var time = $(this).parent().attr("id");
     var blockinfo = $(this).siblings(".blockinfo").val();
@@ -32,12 +32,15 @@ function checkTime() {
         console.log(blockHour);
 
         if (blockHour > currentHour) {
-            console.log("Current hour is: " + currentHour + ". Block with hour " + blockHour + " is in the future.");
+            $(this).addClass("future");
+            $(this).removeClass("past", "present");
         } else if (blockHour === currentHour) {
-            console.log("Current hour is: " + currentHour + ". Block with hour " + blockHour + " is in the present.");
+            $(this).addClass("present");
+            $(this).removeClass("past", "future");
         } else {
-            console.log("Current hour is: " + currentHour + ". Block with hour " + blockHour + " is in the past.");
-        }
+            $(this).addClass("past");
+            $(this).removeClass("future", "present");
+        };
     });
 };
 
